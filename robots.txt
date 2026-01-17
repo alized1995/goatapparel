@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alized1995.github.io/goatapparel/sitemap.xml
