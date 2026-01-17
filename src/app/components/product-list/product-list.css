@@ -1,0 +1,71 @@
+.collection-bg {
+    background-image: url('/assets/images/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark overlay for dark theme */
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+}
+
+.content-relative {
+    position: relative;
+    z-index: 2;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item-custom {
+    min-width: 33.333%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+@media (max-width: 768px) {
+    .carousel-item-custom {
+        min-width: 100%;
+    }
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    color: #000;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+    background: #000;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}

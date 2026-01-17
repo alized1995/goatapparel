@@ -1,0 +1,93 @@
+<section class="py-5 collection-bg position-relative" id="collection">
+    <div class="bg-overlay"></div>
+    <div class="container py-5 content-relative">
+        <div class="row mb-5" data-aos="fade-up">
+            <div class="col-12 text-center text-white">
+                <h2 class="display-4 fw-bold mb-3">Latest Collection</h2>
+                <p class="text-white-50 fw-medium">Discover the new standard in denim craftsmanship.</p>
+            </div>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="carousel-container position-relative overflow-hidden" data-aos="fade-in">
+            <!-- Controls -->
+            <button class="carousel-btn prev" (click)="prev()"><i class="bi bi-chevron-left"></i></button>
+            <button class="carousel-btn next" (click)="next()"><i class="bi bi-chevron-right"></i></button>
+
+            <!-- Track -->
+            <div class="carousel-track" [style.transform]="transformStyle">
+                <div class="carousel-item-custom" *ngFor="let product of products">
+                    <app-product-card [product]="product" (viewProduct)="openPreview($event)"></app-product-card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal Overlay -->
+    <div class="custom-modal-overlay" *ngIf="selectedProduct">
+        <div class="custom-modal-dialog">
+            <div class="modal-content border-0 rounded-0">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img [src]="selectedProduct.image" class="img-fluid w-100 h-100 object-fit-cover"
+                            [alt]="selectedProduct.name" style="min-height: 400px;">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center bg-white text-dark position-relative">
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-3"
+                            (click)="closePreview()" aria-label="Close"></button>
+                        <div class="p-5 w-100">
+                            <span class="badge bg-dark text-white mb-2">NEW ARRIVAL</span>
+                            <h2 class="fw-bold mb-4">{{selectedProduct.name}}</h2>
+                            <p class="text-muted mb-4">Experience the perfect blend of style and comfort. Premium denim
+                                designed for the modern lifestyle.</p>
+                            <div class="d-grid">
+                                <button class="btn btn-dark btn-lg text-uppercase tracking-widest"
+                                    (click)="closePreview()">Close Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .custom-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        /* Dull background as requested */
+        z-index: 2000;
+        /* Above everything */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        backdrop-filter: blur(5px);
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    .custom-modal-dialog {
+        width: 100%;
+        max-width: 900px;
+        background: white;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        animation: slideUp 0.4s ease-out;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
