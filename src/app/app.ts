@@ -29,8 +29,8 @@ export class App implements AfterViewInit {
       { name: 'keywords', content: 'denim, jeans, fashion, premium, goat apparel, pakistan, clothing' },
       { property: 'og:title', content: 'GOAT Apparel | Premium Denim' },
       { property: 'og:description', content: 'Redefining denim for the modern generation.' },
-      { property: 'og:image', content: 'assets/images/brand-feature.jpg' },
-      { property: 'og:url', content: 'https://goatapparel.com' },
+      { property: 'og:image', content: 'https://alized1995.github.io/goatapparel/assets/images/brand-feature.jpg' },
+      { property: 'og:url', content: 'https://alized1995.github.io/goatapparel/' },
       { name: 'robots', content: 'index, follow' }
     ]);
   }
